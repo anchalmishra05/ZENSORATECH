@@ -1,6 +1,16 @@
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
+const form = document.getElementById("form");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const message = document.getElementById("message");
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent default submission
+
+    if (password.value !== confirmPassword.value) {
+        message.textContent = "Passwords do not match ❌";
+        message.style.color = "red";
+    } else {
+        message.textContent = "Registration Successful ✅";
+        message.style.color = "green";
+    }
 });
